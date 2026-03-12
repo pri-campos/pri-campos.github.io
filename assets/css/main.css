@@ -182,20 +182,28 @@ CARD
 /* =========================================================
 THEMES
 ========================================================= */
-.cert-card.theme-qe {
-  --accent:#2563eb;
+.cert-card.accent-blue {
+  --accent: #2563eb;
 }
 
-.cert-card.theme-governance {
-  --accent:#f59e0b;
+.cert-card.accent-amber {
+  --accent: #f59e0b;
 }
 
-.cert-card.theme-cloud {
-  --accent:#14b8a6;
+.cert-card.accent-teal {
+  --accent: #14b8a6;
 }
 
-.cert-card.theme-ai {
-  --accent:#8b5cf6;
+.cert-card.accent-violet {
+  --accent: #8b5cf6;
+}
+
+.cert-card.accent-rose {
+  --accent: #f43f5e;
+}
+
+.cert-card.accent-emerald {
+  --accent: #10b981;
 }
 
 /* =========================================================

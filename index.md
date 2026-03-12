@@ -18,7 +18,7 @@ I work at the intersection of quality engineering, systems thinking, and quality
 
 <div class="cert-grid">
 
-<section class="cert-card theme-qe">
+<section class="cert-card accent-blue">
   <h2>Professional Profile</h2>
   <p class="section-note">
     Areas of focus, professional perspective, and the context I bring to quality engineering in complex software systems.
@@ -28,7 +28,7 @@ I work at the intersection of quality engineering, systems thinking, and quality
   </div>
 </section>
 
-<section class="cert-card theme-governance">
+<section class="cert-card accent-amber">
   <h2>Engineering Principles</h2>
   <p class="section-note">
     Principles, heuristics, and decision criteria that guide my approach to quality engineering, testing strategy, and software reliability.
@@ -38,7 +38,7 @@ I work at the intersection of quality engineering, systems thinking, and quality
   </div>
 </section>
 
-<section class="cert-card theme-governance">
+<section class="cert-card accent-teal">
   <h2>Engineering Writing</h2>
   <p class="section-note">
     Technical essays on quality engineering, testing strategy, and reliability in complex software systems.
@@ -51,7 +51,7 @@ I work at the intersection of quality engineering, systems thinking, and quality
   </div>
 </section>
 
-<section class="cert-card theme-cloud">
+<section class="cert-card accent-violet">
   <h2>Engineering Work</h2>
   <p class="section-note">
     Frameworks, implementações de engenharia e aplicações práticas que exploram como a qualidade opera em sistemas de software complexos.
@@ -61,7 +61,7 @@ I work at the intersection of quality engineering, systems thinking, and quality
   </div>
 </section>
 
-<section class="cert-card theme-ai">
+<section class="cert-card accent-rose">
   <h2>Engineering Map</h2>
   <p class="section-note">
     A conceptual map of quality engineering, connecting testing strategy, distributed systems, platform quality, and software reliability.
@@ -71,7 +71,7 @@ I work at the intersection of quality engineering, systems thinking, and quality
   </div>
 </section>
 
-<section class="cert-card theme-qe">
+<section class="cert-card accent-emerald">
   <h2>Learning & Certifications</h2>
   <p class="section-note">
     Books, courses, research topics, and professional certifications shaping my ongoing development in quality engineering and software systems.
