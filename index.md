@@ -54,7 +54,7 @@ I work at the intersection of quality engineering, systems thinking, and quality
 <section class="cert-card accent-violet">
   <h2>Engineering Work</h2>
   <p class="section-note">
-    Frameworks, implementações de engenharia e aplicações práticas que exploram como a qualidade opera em sistemas de software complexos.
+    Frameworks, engineering implementations, and practical applications that explore how quality operates in complex software systems.
   </p>
   <div class="card-footer">
     <a href="{{ '/work/' | relative_url }}">View engineering work →</a>
