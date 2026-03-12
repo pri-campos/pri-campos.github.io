@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>
+      pri-campos.github.io
+    </title>
+
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <script>
+      (function () {
+        const savedTheme = localStorage.getItem("theme");
+        if (savedTheme === "dark") {
+          document.documentElement.classList.add("theme-preload");
+          document.addEventListener("DOMContentLoaded", function () {
+            document.body.classList.add("dark-mode");
+          });
+        }
+      })();
+    </script>
+  </head>
+
+  <body>
+    <main class="page-content" aria-label="Content">
+      <div class="wrapper">
+
+        <div class="theme-toggle-wrap">
+          <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle theme">
+            Toggle theme
+          </button>
+        </div>
+
+        
+
+      </div>
+    </main>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const button = document.getElementById("theme-toggle");
+        const savedTheme = localStorage.getItem("theme");
+
+        if (savedTheme === "dark") {
+          document.body.classList.add("dark-mode");
+        }
+
+        if (button) {
+          const updateLabel = () => {
+            const isDark = document.body.classList.contains("dark-mode");
+            button.textContent = isDark ? "Light mode" : "Dark mode";
+          };
+
+          updateLabel();
+
+          button.addEventListener("click", function () {
+            document.body.classList.toggle("dark-mode");
+            const isDark = document.body.classList.contains("dark-mode");
+            localStorage.setItem("theme", isDark ? "dark" : "light");
+            updateLabel();
+          });
+        }
+      });
+    </script>
+  </body>
+</html>
