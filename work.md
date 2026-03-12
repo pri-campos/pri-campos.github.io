@@ -1,3 +1,8 @@
+---
+layout: page
+title: Learning & Certifications
+permalink: /work/
+---
 <section class="placeholder-page">
   <div class="placeholder-shell">
 

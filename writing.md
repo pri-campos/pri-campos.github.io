@@ -1,3 +1,8 @@
+---
+layout: page
+title: Learning & Certifications
+permalink: /writing/
+---
 <section class="placeholder-page">
   <div class="placeholder-shell">
 
