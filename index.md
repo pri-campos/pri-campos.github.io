@@ -14,70 +14,70 @@ I work at the intersection of quality engineering, systems thinking, and quality
 
 ---
 
-## Professional Work
+## Work & Thinking
 
 <div class="cert-grid">
 
 <section class="cert-card theme-qe">
-  <h2>About</h2>
+  <h2>Professional Profile</h2>
   <p class="section-note">
-    Professional background, experience, and areas of focus in quality engineering.
+    Areas of focus, professional perspective, and the context I bring to quality engineering in complex software systems.
   </p>
   <div class="card-footer">
-    <a href="{{ '/about/' | relative_url }}">About me →</a>
+    <a href="{{ '/about/' | relative_url }}">View profile →</a>
+  </div>
+</section>
+
+<section class="cert-card theme-governance">
+  <h2>Engineering Principles</h2>
+  <p class="section-note">
+    Principles, heuristics, and decision criteria that guide my approach to quality engineering, testing strategy, and software reliability.
+  </p>
+  <div class="card-footer">
+    <a href="{{ '/principles/' | relative_url }}">Explore principles →</a>
   </div>
 </section>
 
 <section class="cert-card theme-governance">
   <h2>Engineering Writing</h2>
   <p class="section-note">
-    Technical essays and reflections on quality engineering, testing strategy, and distributed systems reliability.
+    Technical essays on quality engineering, testing strategy, and reliability in complex software systems.
   </p>
   <p class="section-note muted">
     Published primarily on Medium.
   </p>
   <div class="card-footer">
-    <a href="{{ '/articles/' | relative_url }}">Read articles →</a>
+    <a href="{{ '/writing/' | relative_url }}">Read articles →</a>
   </div>
 </section>
 
 <section class="cert-card theme-cloud">
-  <h2>Projects</h2>
+  <h2>Engineering Work</h2>
   <p class="section-note">
-    Experiments, frameworks, and practical explorations in quality engineering, reliability, and distributed systems.
+    Frameworks, implementações de engenharia e aplicações práticas que exploram como a qualidade opera em sistemas de software complexos.
   </p>
   <div class="card-footer">
-    <a href="{{ '/projects/' | relative_url }}">View projects →</a>
+    <a href="{{ '/work/' | relative_url }}">View engineering work →</a>
   </div>
 </section>
 
 <section class="cert-card theme-ai">
-  <h2>Certifications</h2>
+  <h2>Engineering Map</h2>
   <p class="section-note">
-    Professional certifications and structured learning in quality engineering, governance, cloud platforms, and emerging technologies.
+    A conceptual map of quality engineering, connecting testing strategy, distributed systems, platform quality, and software reliability.
   </p>
   <div class="card-footer">
-    <a href="{{ '/certifications/' | relative_url }}">View certifications →</a>
+    <a href="{{ '/map/' | relative_url }}">Explore the map →</a>
   </div>
 </section>
 
 <section class="cert-card theme-qe">
-  <h2>Learning</h2>
+  <h2>Learning & Certifications</h2>
   <p class="section-note">
-    Books, courses, and research topics shaping my current learning journey in engineering and software quality.
+    Books, courses, research topics, and professional certifications shaping my ongoing development in quality engineering and software systems.
   </p>
   <div class="card-footer">
-    <a href="{{ '/learning/' | relative_url }}">Explore learning →</a>
-  </div>
-</section>
-
-<section class="cert-card theme-governance">
-  <h2>Resume</h2>
-  <p class="section-note">
-    Professional experience, technical skills, and career trajectory.
-  </p>
-  <div class="card-footer">
-    <a href="{{ '/resume/' | relative_url }}">View resume →</a>
+    <a href="{{ '/learning/' | relative_url }}">See learning journey →</a>
   </div>
 </section>
 
@@ -91,7 +91,7 @@ I work at the intersection of quality engineering, systems thinking, and quality
 - Distributed systems reliability
 - Test automation and testability
 - Quality strategy for complex software systems
-- AI systems evaluation and reliability
+- Quality practices for AI-assisted software engineering
 
 ---
 
