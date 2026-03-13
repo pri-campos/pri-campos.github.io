@@ -149,13 +149,3 @@ I work at the intersection of quality engineering, systems thinking, and quality
 </a>
 
 </div>
-
----
-
-<footer class="site-footer">
-
-  <div class="footer-bottom">
-    <span>© 2026 Priscila Campos</span>
-  </div>
-
-</footer>

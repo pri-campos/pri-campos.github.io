@@ -573,3 +573,71 @@ PLACEHOLDER / UNDER CONSTRUCTION
   color:var(--text-muted);
   font-size:.9rem;
 }
+
+/* =========================================================
+FOOTER
+========================================================= */
+.site-footer{
+  margin-top:80px;
+  padding:48px 20px;
+  border-top:1px solid var(--border);
+  background:var(--surface-alt);
+}
+
+.footer-container{
+  max-width:1000px;
+  margin:auto;
+  display:grid;
+  gap:32px;
+}
+
+.footer-about{
+  max-width:520px;
+}
+
+.footer-about p{
+  margin-top:6px;
+  font-size:14px;
+  line-height:1.5;
+  color:var(--text-muted);
+}
+
+.footer-nav{
+  display:flex;
+  gap:60px;
+  flex-wrap:wrap;
+}
+
+.footer-column h4{
+  margin-bottom:10px;
+  font-size:14px;
+  font-weight:600;
+  color:var(--text-main);
+}
+
+.footer-column ul{
+  list-style:none;
+  padding:0;
+  margin:0;
+}
+
+.footer-column li{
+  margin-bottom:6px;
+}
+
+.footer-column a{
+  font-size:14px;
+  color:var(--text-muted);
+  text-decoration:none;
+  transition:color .15s ease;
+}
+
+.footer-column a:hover{
+  color:var(--link);
+}
+
+.footer-bottom{
+  margin-top:20px;
+  font-size:12px;
+  color:var(--text-muted);
+}
