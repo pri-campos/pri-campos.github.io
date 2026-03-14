@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -11,176 +9,160 @@
   </title>
 
   <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
-
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <script>
     (function () {
-
       const savedTheme = localStorage.getItem("theme");
+      const systemPrefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+      const shouldUseDark = savedTheme ? savedTheme === "dark" : systemPrefersDark;
 
-      if (savedTheme === "dark") {
-
+      if (shouldUseDark) {
         document.documentElement.classList.add("theme-preload");
-
         document.addEventListener("DOMContentLoaded", function () {
           document.body.classList.add("dark-mode");
         });
-
       }
-
     })();
   </script>
-
 </head>
 
 <body>
 
   <main class="page-content" aria-label="Content">
-
     <div class="wrapper">
 
       <div class="top-bar">
-
         {% unless page.url == "/" %}
-        <a href="{{ '/' | relative_url }}" class="home-link">
-          ← Home
-        </a>
+        <a href="{{ '/' | relative_url }}" class="home-link">← Home</a>
         {% endunless %}
 
         <div class="theme-toggle-wrap">
+          <button
+            id="theme-toggle"
+            class="theme-switch"
+            type="button"
+            aria-label="Alternar tema"
+            aria-pressed="false"
+            title="Alternar tema"
+          >
+            <span class="theme-switch-track">
+              <span class="theme-switch-scene">
+                <span class="theme-stars"></span>
+                <span class="theme-skyline skyline-back"></span>
+                <span class="theme-skyline skyline-front"></span>
+              </span>
 
-          <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle theme">
-
-            <!-- Moon icon -->
-            <svg class="icon icon-moon" xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round">
-
-              <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9"/>
-
-            </svg>
-
-            <!-- Sun icon -->
-            <svg class="icon icon-sun" xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round">
-
-              <circle cx="12" cy="12" r="4"/>
-
-              <line x1="12" y1="2" x2="12" y2="4"/>
-              <line x1="12" y1="20" x2="12" y2="22"/>
-
-              <line x1="4.93" y1="4.93" x2="6.34" y2="6.34"/>
-              <line x1="17.66" y1="17.66" x2="19.07" y2="19.07"/>
-
-              <line x1="2" y1="12" x2="4" y2="12"/>
-              <line x1="20" y1="12" x2="22" y2="12"/>
-
-              <line x1="6.34" y1="17.66" x2="4.93" y2="19.07"/>
-              <line x1="19.07" y1="4.93" x2="17.66" y2="6.34"/>
-
-            </svg>
-
+              <span class="theme-switch-thumb">
+                <span class="moon-crater crater-1"></span>
+                <span class="moon-crater crater-2"></span>
+                <span class="moon-crater crater-3"></span>
+              </span>
+            </span>
           </button>
-
         </div>
-
       </div>
 
       {{ content }}
-
     </div>
-
   </main>
 
+  <footer class="site-footer">
+    <div class="footer-container">
+
+      <div class="footer-about">
+        <strong>Priscila Campos</strong>
+        <p>
+          Quality Engineering Lead focused on quality in distributed systems.
+        </p>
+      </div>
+
+      <nav class="footer-nav">
+        <div class="footer-column">
+          <h4>Site</h4>
+          <ul>
+            <li><a href="{{ '/' | relative_url }}">Home</a></li>
+            <li><a href="{{ '/about/' | relative_url }}">Professional Profile</a></li>
+            <li><a href="{{ '/principles/' | relative_url }}">Engineering Principles</a></li>
+            <li><a href="{{ '/writing/' | relative_url }}">Engineering Writing</a></li>
+            <li><a href="{{ '/work/' | relative_url }}">Engineering Work</a></li>
+            <li><a href="{{ '/map/' | relative_url }}">Engineering Map</a></li>
+            <li><a href="{{ '/learning/' | relative_url }}">Learning & Certifications</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h4>Connect</h4>
+          <ul>
+            <li><a href="mailto:84priscila.campos@gmail.com">Email</a></li>
+            <li><a href="https://linkedin.com/in/pri-campos" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+            <li><a href="https://github.com/pri-campos" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+            <li><a href="https://medium.com/@pri-campos" target="_blank" rel="noopener noreferrer">Medium</a></li>
+          </ul>
+        </div>
+      </nav>
+
+      <div class="footer-bottom">
+        © {{ site.time | date: "%Y" }} Priscila Campos
+      </div>
+
+    </div>
+  </footer>
 
   <script>
-
     document.addEventListener("DOMContentLoaded", function () {
-
       const button = document.getElementById("theme-toggle");
+      const storageKey = "theme";
+      const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
 
-      const savedTheme = localStorage.getItem("theme");
+      function applyTheme(theme) {
+        const isDark = theme === "dark";
+        document.body.classList.toggle("dark-mode", isDark);
 
-      if (savedTheme === "dark") {
-        document.body.classList.add("dark-mode");
+        if (button) {
+          button.setAttribute("aria-pressed", String(isDark));
+          button.setAttribute(
+            "aria-label",
+            isDark ? "Ativar modo claro" : "Ativar modo escuro"
+          );
+          button.setAttribute(
+            "title",
+            isDark ? "Ativar modo claro" : "Ativar modo escuro"
+          );
+        }
       }
+
+      function getPreferredTheme() {
+        const savedTheme = localStorage.getItem(storageKey);
+        if (savedTheme === "light" || savedTheme === "dark") {
+          return savedTheme;
+        }
+        return mediaQuery.matches ? "dark" : "light";
+      }
+
+      applyTheme(getPreferredTheme());
 
       if (button) {
-
         button.addEventListener("click", function () {
-
-          document.body.classList.toggle("dark-mode");
-
           const isDark = document.body.classList.contains("dark-mode");
+          const nextTheme = isDark ? "light" : "dark";
 
-          localStorage.setItem("theme", isDark ? "dark" : "light");
-
+          applyTheme(nextTheme);
+          localStorage.setItem(storageKey, nextTheme);
         });
-
       }
 
-    });
+      mediaQuery.addEventListener("change", function (event) {
+        const savedTheme = localStorage.getItem(storageKey);
 
+        if (savedTheme !== "light" && savedTheme !== "dark") {
+          applyTheme(event.matches ? "dark" : "light");
+        }
+      });
+    });
   </script>
 
 </body>
-
-<footer class="site-footer">
-
-  <div class="footer-container">
-
-    <div class="footer-about">
-      <strong>Priscila Campos</strong>
-      <p>
-        Quality Engineering Lead focused on quality in distributed systems.
-      </p>
-    </div>
-
-    <nav class="footer-nav">
-
-      <div class="footer-column">
-        <h4>Site</h4>
-        <ul>
-          <li><a href="{{ '/' | relative_url }}">Home</a></li>
-          <li><a href="{{ '/about/' | relative_url }}">Professional Profile</a></li>
-          <li><a href="{{ '/principles/' | relative_url }}">Engineering Principles</a></li>
-          <li><a href="{{ '/writing/' | relative_url }}">Engineering Writing</a></li>
-          <li><a href="{{ '/work/' | relative_url }}">Engineering Work</a></li>
-          <li><a href="{{ '/map/' | relative_url }}">Engineering Map</a></li>
-          <li><a href="{{ '/learning/' | relative_url }}">Learning & Certifications</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-column">
-        <h4>Connect</h4>
-        <ul>
-          <li><a href="mailto:84priscila.campos@gmail.com">Email</a></li>
-          <li><a href="https://linkedin.com/in/pri-campos" target="_blank">LinkedIn</a></li>
-          <li><a href="https://github.com/pri-campos" target="_blank">GitHub</a></li>
-          <li><a href="https://medium.com/@pri-campos" target="_blank">Medium</a></li>
-        </ul>
-      </div>
-
-    </nav>
-
-    <div class="footer-bottom">
-      © {{ site.time | date: "%Y" }} Priscila Campos
-    </div>
-
-  </div>
-
-</footer>
 </html>
