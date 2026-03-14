@@ -888,26 +888,148 @@ FOOTER
   padding:48px 20px;
   border-top:1px solid var(--border);
   background:var(--surface-alt);
+  position:relative;
+  overflow:hidden;
 }
 
 .footer-container{
   max-width:1000px;
   margin:auto;
   display:grid;
-  gap:32px;
+  gap:28px;
 }
 
-.footer-about{
-  max-width:520px;
+/* =========================================================
+FOOTER BRAND / COFFEE
+========================================================= */
+.footer-brand{
+  display:flex;
+  justify-content:flex-start;
+  align-items:center;
+  min-height:72px;
 }
 
-.footer-about p{
-  margin-top:6px;
-  font-size:14px;
-  line-height:1.5;
-  color:var(--text-muted);
+.footer-coffee{
+  --cup: #ffffff;
+  --cup-border: rgba(15,23,42,0.08);
+  --coffee: #7a4a2c;
+  --saucer: rgba(148,163,184,0.22);
+  --steam: rgba(148,163,184,0.45);
+
+  position:relative;
+  width:96px;
+  height:72px;
+  flex:0 0 auto;
 }
 
+body.dark-mode .footer-coffee{
+  --cup: #dbe4f3;
+  --cup-border: rgba(255,255,255,0.06);
+  --coffee: #8a5a38;
+  --saucer: rgba(148,163,184,0.16);
+  --steam: rgba(203,213,225,0.28);
+}
+
+/* vapor */
+.coffee-steam{
+  position:absolute;
+  bottom:44px;
+  width:10px;
+  height:28px;
+  border-radius:999px;
+  border:2px solid transparent;
+  border-top-color:var(--steam);
+  border-left-color:var(--steam);
+  opacity:.65;
+  filter:blur(.2px);
+  animation:coffeeSteam 3.2s ease-in-out infinite;
+}
+
+.steam-1{
+  left:24px;
+  transform:rotate(-8deg);
+  animation-delay:0s;
+}
+
+.steam-2{
+  left:40px;
+  height:34px;
+  transform:rotate(8deg);
+  animation-delay:.5s;
+}
+
+.steam-3{
+  left:56px;
+  transform:rotate(-4deg);
+  animation-delay:1s;
+}
+
+/* xícara */
+.coffee-cup{
+  position:absolute;
+  left:18px;
+  bottom:14px;
+  width:44px;
+  height:28px;
+  border-radius:0 0 12px 12px;
+  background:var(--cup);
+  border:1px solid var(--cup-border);
+  box-shadow:
+    0 6px 14px rgba(15,23,42,0.08),
+    inset 0 1px 0 rgba(255,255,255,0.55);
+}
+
+.coffee-cup::before{
+  content:"";
+  position:absolute;
+  top:-4px;
+  left:2px;
+  width:40px;
+  height:7px;
+  border-radius:999px;
+  background:var(--cup);
+  border:1px solid var(--cup-border);
+}
+
+.coffee-liquid{
+  position:absolute;
+  top:3px;
+  left:5px;
+  width:34px;
+  height:7px;
+  border-radius:999px;
+  background:linear-gradient(180deg, #9b6541 0%, var(--coffee) 100%);
+  opacity:.95;
+}
+
+/* alça */
+.coffee-handle{
+  position:absolute;
+  left:56px;
+  bottom:21px;
+  width:16px;
+  height:16px;
+  border:3px solid var(--cup);
+  border-left:none;
+  border-radius:0 999px 999px 0;
+  box-sizing:border-box;
+  filter:drop-shadow(0 2px 3px rgba(15,23,42,0.06));
+}
+
+/* pires */
+.coffee-saucer{
+  position:absolute;
+  left:10px;
+  bottom:8px;
+  width:64px;
+  height:8px;
+  border-radius:999px;
+  background:var(--saucer);
+}
+
+/* =========================================================
+FOOTER
+========================================================= */
 .footer-nav{
   display:grid;
   grid-template-columns:repeat(2, minmax(180px, 1fr));
@@ -941,18 +1063,37 @@ FOOTER
   line-height:1.5;
   color:var(--text-muted);
   text-decoration:none;
-  transition:color .15s ease;
+  transition:color .18s ease, transform .18s ease;
 }
 
 .footer-column a:hover{
   color:var(--link);
+  transform:translateX(2px);
 }
 
 .footer-bottom{
-  margin-top:20px;
+  margin-top:8px;
   font-size:12px;
   line-height:1.5;
   color:var(--text-muted);
+}
+
+@keyframes coffeeSteam {
+  0% {
+    opacity:0;
+    transform:translateY(8px) scale(.96);
+  }
+  20% {
+    opacity:.55;
+  }
+  50% {
+    opacity:.8;
+    transform:translateY(-2px) scale(1);
+  }
+  100% {
+    opacity:0;
+    transform:translateY(-14px) scale(1.06);
+  }
 }
 
 @media (max-width: 768px){
@@ -965,13 +1106,14 @@ FOOTER
     gap:24px;
   }
 
+  .footer-brand{
+    justify-content:center;
+    min-height:64px;
+  }
+
   .footer-nav{
     grid-template-columns:1fr;
     gap:24px;
-  }
-
-  .footer-about{
-    max-width:100%;
   }
 
   .footer-column h4{
@@ -979,7 +1121,8 @@ FOOTER
   }
 
   .footer-bottom{
-    margin-top:8px;
+    margin-top:4px;
+    text-align:center;
   }
 }
 
@@ -988,7 +1131,11 @@ FOOTER
     padding:32px 14px;
   }
 
-  .footer-about p,
+  .footer-coffee{
+    transform:scale(.92);
+    transform-origin:center;
+  }
+
   .footer-column a{
     font-size:13px;
   }
@@ -999,5 +1146,16 @@ FOOTER
 
   .footer-bottom{
     font-size:11px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce){
+  .coffee-steam{
+    animation:none;
+    opacity:.45;
+  }
+
+  .footer-column a{
+    transition:none;
   }
 }
