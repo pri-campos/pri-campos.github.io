@@ -28,7 +28,7 @@ I work at the intersection of quality engineering, systems thinking, and observa
   </div>
 </section>
 
-<section class="cert-card accent-amber">
+<section class="cert-card accent-orange">
   <h2>Engineering Principles</h2>
   <p class="section-note">
     Principles, heuristics, and decision criteria that guide my approach to quality engineering, testing strategy, and software reliability.
@@ -38,7 +38,7 @@ I work at the intersection of quality engineering, systems thinking, and observa
   </div>
 </section>
 
-<section class="cert-card accent-turquoise">
+<section class="cert-card accent-teal">
   <h2>Engineering Writing</h2>
   <p class="section-note">
     Technical essays on quality engineering, testing strategy, and reliability in complex software systems.
@@ -71,7 +71,7 @@ I work at the intersection of quality engineering, systems thinking, and observa
   </div>
 </section>
 
-<section class="cert-card accent-magenta">
+<section class="cert-card accent-pink">
   <h2>Learning & Certifications</h2>
   <p class="section-note">
     Books, courses, research topics, and professional certifications shaping my ongoing development in quality engineering and software systems.
