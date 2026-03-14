@@ -18,7 +18,7 @@ Industry certifications and course completion certificates documenting formal le
 
 <div class="cert-grid">
 
-  <section class="cert-card accent-blue">
+  <section class="cert-card accent-yellow">
     <h2>Industry Certifications</h2>
     <p class="section-note">
       Formal certifications recognized by the industry, validating knowledge and professional practice in software engineering and quality-related disciplines.
@@ -28,7 +28,7 @@ Industry certifications and course completion certificates documenting formal le
     </ul>
   </section>
 
-  <section class="cert-card accent-amber">
+  <section class="cert-card accent-pink">
     <h2>Professional Certificates</h2>
     <p class="section-note">
       Course-based professional certificates documenting structured learning in software engineering and quality-related disciplines.
