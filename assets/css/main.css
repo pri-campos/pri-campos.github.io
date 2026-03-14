@@ -192,23 +192,23 @@ THEMES
 }
 
 .cert-card.accent-amber {
-  --accent: #f59e0b;
+  --accent: #FF7F50;
 }
 
-.cert-card.accent-teal {
-  --accent: #14b8a6;
+.cert-card.accent-turquoise {
+  --accent: #40E0D0;
 }
 
 .cert-card.accent-violet {
   --accent: #8b5cf6;
 }
 
-.cert-card.accent-rose {
-  --accent: #f43f5e;
+.cert-card.accent-yellow {
+  --accent: #EEEE00;
 }
 
-.cert-card.accent-emerald {
-  --accent: #59d769;
+.cert-card.accent-magenta {
+  --accent: #FF00FF;
 }
 
 /* =========================================================
@@ -324,7 +324,6 @@ ICONS
 /* =========================================================
 THEME TOGGLE
 ========================================================= */
-
 .theme-toggle-wrap {
   display: flex;
   align-items: center;
