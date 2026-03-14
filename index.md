@@ -6,10 +6,10 @@ permalink: /
 
 # Priscila Campos
 
-Quality Engineering Lead focused on distributed systems quality, test automation, and quality strategy.
+Quality Engineering for distributed systems, focusing on reliability, test architecture, and quality strategy.
 
 <p class="page-intro">
-I work at the intersection of quality engineering, systems thinking, and quality strategy, helping engineering teams improve reliability in complex software systems.
+I work at the intersection of quality engineering, systems thinking, and observability, using automation and AI to improve reliability in complex distributed systems.
 </p>
 
 ---
