@@ -60,7 +60,7 @@
 
               <span class="theme-switch-icon theme-switch-icon-moon" aria-hidden="true">☾</span>
 
-              <span class="theme-switch-thumb">
+              <span id="theme-thumb" class="theme-switch-thumb">
                 <span class="moon-crater crater-1"></span>
                 <span class="moon-crater crater-2"></span>
                 <span class="moon-crater crater-3"></span>
@@ -124,12 +124,27 @@
   <script>
     document.addEventListener("DOMContentLoaded", function () {
       const button = document.getElementById("theme-toggle");
+      const thumb = document.getElementById("theme-thumb");
       const storageKey = "theme";
       const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+
+      let isDragging = false;
+      let dragMoved = false;
+      let currentProgress = 0;
+
+      function clamp(value, min, max) {
+        return Math.min(Math.max(value, min), max);
+      }
+
+      function setProgress(progress) {
+        currentProgress = clamp(progress, 0, 1);
+        button.style.setProperty("--drag-progress", currentProgress);
+      }
 
       function applyTheme(theme) {
         const isDark = theme === "dark";
         document.body.classList.toggle("dark-mode", isDark);
+        setProgress(isDark ? 1 : 0);
 
         if (button) {
           button.setAttribute("aria-checked", String(isDark));
@@ -152,22 +167,71 @@
         return mediaQuery.matches ? "dark" : "light";
       }
 
+      function getDragProgress(clientX) {
+        const rect = button.getBoundingClientRect();
+        const styles = getComputedStyle(button);
+        const switchWidth = parseFloat(styles.getPropertyValue("--switch-width"));
+        const thumbSize = parseFloat(styles.getPropertyValue("--thumb-size"));
+        const trackPadding = parseFloat(styles.getPropertyValue("--track-padding"));
+        const minX = trackPadding;
+        const maxX = switchWidth - thumbSize - trackPadding;
+        const relativeX = clientX - rect.left - thumbSize / 2;
+        const clampedX = clamp(relativeX, minX, maxX);
+        return (clampedX - minX) / (maxX - minX);
+      }
+
+      function commitThemeFromProgress(progress) {
+        const nextTheme = progress >= 0.5 ? "dark" : "light";
+        applyTheme(nextTheme);
+        localStorage.setItem(storageKey, nextTheme);
+      }
+
       applyTheme(getPreferredTheme());
 
-      if (button) {
-        button.addEventListener("click", function () {
-          const isDark = document.body.classList.contains("dark-mode");
-          const nextTheme = isDark ? "light" : "dark";
+      button.addEventListener("click", function (event) {
+        if (isDragging || dragMoved) {
+          event.preventDefault();
+          return;
+        }
 
-          applyTheme(nextTheme);
-          localStorage.setItem(storageKey, nextTheme);
-        });
+        const isDark = document.body.classList.contains("dark-mode");
+        const nextTheme = isDark ? "light" : "dark";
+        applyTheme(nextTheme);
+        localStorage.setItem(storageKey, nextTheme);
+      });
+
+      button.addEventListener("pointerdown", function (event) {
+        isDragging = true;
+        dragMoved = false;
+        button.classList.add("is-dragging");
+        button.setPointerCapture(event.pointerId);
+        setProgress(getDragProgress(event.clientX));
+      });
+
+      button.addEventListener("pointermove", function (event) {
+        if (!isDragging) return;
+        dragMoved = true;
+        setProgress(getDragProgress(event.clientX));
+      });
+
+      function finishDrag(event) {
+        if (!isDragging) return;
+        isDragging = false;
+        button.classList.remove("is-dragging");
+        button.releasePointerCapture?.(event.pointerId);
+        commitThemeFromProgress(currentProgress);
+
+        setTimeout(function () {
+          dragMoved = false;
+        }, 0);
       }
+
+      button.addEventListener("pointerup", finishDrag);
+      button.addEventListener("pointercancel", finishDrag);
 
       if (typeof mediaQuery.addEventListener === "function") {
         mediaQuery.addEventListener("change", function (event) {
           const savedTheme = localStorage.getItem(storageKey);
-
           if (savedTheme !== "light" && savedTheme !== "dark") {
             applyTheme(event.matches ? "dark" : "light");
           }
@@ -175,7 +239,6 @@
       } else if (typeof mediaQuery.addListener === "function") {
         mediaQuery.addListener(function (event) {
           const savedTheme = localStorage.getItem(storageKey);
-
           if (savedTheme !== "light" && savedTheme !== "dark") {
             applyTheme(event.matches ? "dark" : "light");
           }
