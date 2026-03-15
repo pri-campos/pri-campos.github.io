@@ -44,16 +44,21 @@
             id="theme-toggle"
             class="theme-switch"
             type="button"
-            aria-label="Alternar tema"
-            aria-pressed="false"
+            role="switch"
+            aria-label="Alternar entre modo claro e escuro"
+            aria-checked="false"
             title="Alternar tema"
           >
             <span class="theme-switch-track">
+              <span class="theme-switch-icon theme-switch-icon-sun" aria-hidden="true">☀</span>
+
               <span class="theme-switch-scene">
                 <span class="theme-stars"></span>
                 <span class="theme-skyline skyline-back"></span>
                 <span class="theme-skyline skyline-front"></span>
               </span>
+
+              <span class="theme-switch-icon theme-switch-icon-moon" aria-hidden="true">☾</span>
 
               <span class="theme-switch-thumb">
                 <span class="moon-crater crater-1"></span>
@@ -127,7 +132,7 @@
         document.body.classList.toggle("dark-mode", isDark);
 
         if (button) {
-          button.setAttribute("aria-pressed", String(isDark));
+          button.setAttribute("aria-checked", String(isDark));
           button.setAttribute(
             "aria-label",
             isDark ? "Ativar modo claro" : "Ativar modo escuro"
@@ -159,13 +164,23 @@
         });
       }
 
-      mediaQuery.addEventListener("change", function (event) {
-        const savedTheme = localStorage.getItem(storageKey);
+      if (typeof mediaQuery.addEventListener === "function") {
+        mediaQuery.addEventListener("change", function (event) {
+          const savedTheme = localStorage.getItem(storageKey);
 
-        if (savedTheme !== "light" && savedTheme !== "dark") {
-          applyTheme(event.matches ? "dark" : "light");
-        }
-      });
+          if (savedTheme !== "light" && savedTheme !== "dark") {
+            applyTheme(event.matches ? "dark" : "light");
+          }
+        });
+      } else if (typeof mediaQuery.addListener === "function") {
+        mediaQuery.addListener(function (event) {
+          const savedTheme = localStorage.getItem(storageKey);
+
+          if (savedTheme !== "light" && savedTheme !== "dark") {
+            applyTheme(event.matches ? "dark" : "light");
+          }
+        });
+      }
     });
   </script>
 
