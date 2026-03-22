@@ -33,10 +33,9 @@ I work at the intersection of quality engineering, systems thinking, and observa
 
 <section class="cert-card accent-orange">
   <div class="cert-card-head">
-     <h2>Professional Profile</h2>
+     <h2>Engineering Principles</h2>
     <span class="cert-accent-bar" aria-hidden="true"></span>
   </div>
-  <!-- <h2>Engineering Principles</h2> -->
   <p class="section-note">
     Principles, heuristics, and decision criteria that guide my approach to quality engineering, testing strategy, and software reliability.
   </p>
@@ -47,10 +46,9 @@ I work at the intersection of quality engineering, systems thinking, and observa
 
 <section class="cert-card accent-teal">
   <div class="cert-card-head">
-     <h2>Professional Profile</h2>
+     <h2>Engineering Writing</h2>
     <span class="cert-accent-bar" aria-hidden="true"></span>
   </div>
-  <!-- <h2>Engineering Writing</h2> -->
   <p class="section-note">
     Technical essays on quality engineering, testing strategy, and reliability in complex software systems.
   </p>
@@ -64,10 +62,9 @@ I work at the intersection of quality engineering, systems thinking, and observa
 
 <section class="cert-card accent-violet">
     <div class="cert-card-head">
-     <h2>Professional Profile</h2>
+     <h2>Engineering Work</h2>
     <span class="cert-accent-bar" aria-hidden="true"></span>
   </div>
-  <!-- <h2>Engineering Work</h2> -->
   <p class="section-note">
     Frameworks, engineering implementations, and practical applications that explore how quality operates in complex software systems.
   </p>
@@ -78,10 +75,9 @@ I work at the intersection of quality engineering, systems thinking, and observa
 
 <section class="cert-card accent-yellow">
   <div class="cert-card-head">
-     <h2>Professional Profile</h2>
+     <h2>Engineering Map</h2>
     <span class="cert-accent-bar" aria-hidden="true"></span>
   </div>
-  <!-- <h2>Engineering Map</h2> -->
   <p class="section-note">
     A conceptual map of quality engineering, connecting testing strategy, distributed systems, platform quality, and software reliability.
   </p>
@@ -92,10 +88,9 @@ I work at the intersection of quality engineering, systems thinking, and observa
 
 <section class="cert-card accent-pink">
   <div class="cert-card-head">
-     <h2>Professional Profile</h2>
+     <h2>Learning & Certifications</h2>
     <span class="cert-accent-bar" aria-hidden="true"></span>
   </div>
-  <!-- <h2>Learning & Certifications</h2> -->
   <p class="section-note">
     Books, courses, research topics, and professional certifications shaping my ongoing development in quality engineering and software systems.
   </p>
