@@ -124,39 +124,20 @@
   <script>
     document.addEventListener("DOMContentLoaded", function () {
       const button = document.getElementById("theme-toggle");
-      const thumb = document.getElementById("theme-thumb");
       const storageKey = "theme";
       const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
 
-      let isDragging = false;
-      let dragMoved = false;
+      const DRAG_THRESHOLD = 8;
+
+      let pointerDown = false;
+      let dragging = false;
+      let suppressClick = false;
+      let startX = 0;
+      let pointerId = null;
       let currentProgress = 0;
 
       function clamp(value, min, max) {
         return Math.min(Math.max(value, min), max);
-      }
-
-      function setProgress(progress) {
-        currentProgress = clamp(progress, 0, 1);
-        button.style.setProperty("--drag-progress", currentProgress);
-      }
-
-      function applyTheme(theme) {
-        const isDark = theme === "dark";
-        document.body.classList.toggle("dark-mode", isDark);
-        setProgress(isDark ? 1 : 0);
-
-        if (button) {
-          button.setAttribute("aria-checked", String(isDark));
-          button.setAttribute(
-            "aria-label",
-            isDark ? "Ativar modo claro" : "Ativar modo escuro"
-          );
-          button.setAttribute(
-            "title",
-            isDark ? "Ativar modo claro" : "Ativar modo escuro"
-          );
-        }
       }
 
       function getPreferredTheme() {
@@ -167,67 +148,176 @@
         return mediaQuery.matches ? "dark" : "light";
       }
 
-      function getDragProgress(clientX) {
+      function isDarkMode() {
+        return document.body.classList.contains("dark-mode");
+      }
+
+      function setProgress(progress) {
+        currentProgress = clamp(progress, 0, 1);
+        button.style.setProperty("--drag-progress", currentProgress);
+      }
+
+      function syncProgressWithTheme() {
+        setProgress(isDarkMode() ? 1 : 0);
+      }
+
+      function applyTheme(theme) {
+        const isDark = theme === "dark";
+
+        document.body.classList.toggle("dark-mode", isDark);
+        button.setAttribute("aria-checked", String(isDark));
+        button.setAttribute(
+          "aria-label",
+          isDark ? "Ativar modo claro" : "Ativar modo escuro"
+        );
+        button.setAttribute(
+          "title",
+          isDark ? "Ativar modo claro" : "Ativar modo escuro"
+        );
+
+        setProgress(isDark ? 1 : 0);
+      }
+
+      function saveAndApplyTheme(theme) {
+        localStorage.setItem(storageKey, theme);
+        applyTheme(theme);
+      }
+
+      function getMetrics() {
         const rect = button.getBoundingClientRect();
         const styles = getComputedStyle(button);
-        const switchWidth = parseFloat(styles.getPropertyValue("--switch-width"));
-        const thumbSize = parseFloat(styles.getPropertyValue("--thumb-size"));
-        const trackPadding = parseFloat(styles.getPropertyValue("--track-padding"));
+
+        const switchWidth =
+          parseFloat(styles.getPropertyValue("--switch-width")) || rect.width;
+        const thumbSize =
+          parseFloat(styles.getPropertyValue("--thumb-size")) || 38;
+        const trackPadding =
+          parseFloat(styles.getPropertyValue("--track-padding")) || 4;
+
         const minX = trackPadding;
         const maxX = switchWidth - thumbSize - trackPadding;
+
+        return { rect, switchWidth, thumbSize, trackPadding, minX, maxX };
+      }
+
+      function getDragProgress(clientX) {
+        const { rect, thumbSize, minX, maxX } = getMetrics();
         const relativeX = clientX - rect.left - thumbSize / 2;
         const clampedX = clamp(relativeX, minX, maxX);
         return (clampedX - minX) / (maxX - minX);
       }
 
-      function commitThemeFromProgress(progress) {
-        const nextTheme = progress >= 0.5 ? "dark" : "light";
-        applyTheme(nextTheme);
-        localStorage.setItem(storageKey, nextTheme);
+      function getThemeFromClickPosition(clientX) {
+        const { rect } = getMetrics();
+        const relative = clientX - rect.left;
+        const ratio = relative / rect.width;
+        return ratio >= 0.5 ? "dark" : "light";
+      }
+
+      function commitThemeFromProgress() {
+        const nextTheme = currentProgress >= 0.5 ? "dark" : "light";
+        saveAndApplyTheme(nextTheme);
+      }
+
+      function resetInteractionState() {
+        pointerDown = false;
+        dragging = false;
+        button.classList.remove("is-dragging");
+
+        if (pointerId !== null) {
+          try {
+            button.releasePointerCapture(pointerId);
+          } catch (_) {}
+        }
+
+        pointerId = null;
       }
 
       applyTheme(getPreferredTheme());
 
+      button.addEventListener("pointerdown", function (event) {
+        pointerDown = true;
+        dragging = false;
+        suppressClick = false;
+        startX = event.clientX;
+        pointerId = event.pointerId;
+
+        syncProgressWithTheme();
+        button.setPointerCapture?.(pointerId);
+      });
+
+      button.addEventListener("pointermove", function (event) {
+        if (!pointerDown) return;
+
+        const distance = Math.abs(event.clientX - startX);
+
+        if (!dragging && distance >= DRAG_THRESHOLD) {
+          dragging = true;
+          suppressClick = true;
+          button.classList.add("is-dragging");
+        }
+
+        if (dragging) {
+          setProgress(getDragProgress(event.clientX));
+        }
+      });
+
+      button.addEventListener("pointerup", function () {
+        if (!pointerDown) return;
+
+        if (dragging) {
+          commitThemeFromProgress();
+        }
+
+        resetInteractionState();
+
+        setTimeout(function () {
+          suppressClick = false;
+        }, 0);
+      });
+
+      button.addEventListener("pointercancel", function () {
+        syncProgressWithTheme();
+        resetInteractionState();
+
+        setTimeout(function () {
+          suppressClick = false;
+        }, 0);
+      });
+
+      button.addEventListener("lostpointercapture", function () {
+        if (pointerDown || dragging) {
+          syncProgressWithTheme();
+          resetInteractionState();
+
+          setTimeout(function () {
+            suppressClick = false;
+          }, 0);
+        }
+      });
+
       button.addEventListener("click", function (event) {
-        if (isDragging || dragMoved) {
+        if (suppressClick) {
           event.preventDefault();
           return;
         }
 
-        const isDark = document.body.classList.contains("dark-mode");
-        const nextTheme = isDark ? "light" : "dark";
-        applyTheme(nextTheme);
-        localStorage.setItem(storageKey, nextTheme);
+        const nextTheme = getThemeFromClickPosition(event.clientX);
+        saveAndApplyTheme(nextTheme);
       });
 
-      button.addEventListener("pointerdown", function (event) {
-        isDragging = true;
-        dragMoved = false;
-        button.classList.add("is-dragging");
-        button.setPointerCapture(event.pointerId);
-        setProgress(getDragProgress(event.clientX));
+      button.addEventListener("keydown", function (event) {
+        if (event.key === "ArrowLeft") {
+          event.preventDefault();
+          saveAndApplyTheme("light");
+        } else if (event.key === "ArrowRight") {
+          event.preventDefault();
+          saveAndApplyTheme("dark");
+        } else if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          saveAndApplyTheme(isDarkMode() ? "light" : "dark");
+        }
       });
-
-      button.addEventListener("pointermove", function (event) {
-        if (!isDragging) return;
-        dragMoved = true;
-        setProgress(getDragProgress(event.clientX));
-      });
-
-      function finishDrag(event) {
-        if (!isDragging) return;
-        isDragging = false;
-        button.classList.remove("is-dragging");
-        button.releasePointerCapture?.(event.pointerId);
-        commitThemeFromProgress(currentProgress);
-
-        setTimeout(function () {
-          dragMoved = false;
-        }, 0);
-      }
-
-      button.addEventListener("pointerup", finishDrag);
-      button.addEventListener("pointercancel", finishDrag);
 
       if (typeof mediaQuery.addEventListener === "function") {
         mediaQuery.addEventListener("change", function (event) {
