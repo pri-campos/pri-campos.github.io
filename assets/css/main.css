@@ -347,28 +347,67 @@ body.dark-mode .cert-accent-bar {
 /* =========================================================
 ACCENT THEMES
 ========================================================= */
-.cert-card.accent-blue {
-  --accent: #3B82F6;
+
+/* Base */
+.cert-card.accent-white {
+  --accent: #ffffff;
+  --accent-rgb: 59, 130, 246;
 }
 
 .cert-card.accent-orange {
   --accent: #F97316;
+  --accent-rgb: 249, 115, 22;
 }
 
 .cert-card.accent-teal {
   --accent: #14B8A6;
+  --accent-rgb: 20, 184, 166;
 }
 
 .cert-card.accent-violet {
   --accent: #8B5CF6;
+  --accent-rgb: 139, 92, 246;
 }
 
 .cert-card.accent-yellow {
   --accent: #EAB308;
+  --accent-rgb: 234, 179, 8;
 }
 
 .cert-card.accent-pink {
   --accent: #EC4899;
+  --accent-rgb: 236, 72, 153;
+}
+
+/* Dark mode calibration */
+body.dark-mode .cert-accent-bar.accent-blue {
+  --accent: #ae9222;
+  --accent-rgb: 96, 165, 250;
+}
+
+body.dark-mode .cert-accent-bar.accent-orange {
+  --accent: #FB923C;
+  --accent-rgb: 251, 146, 60;
+}
+
+body.dark-mode .cert-accent-bar.accent-teal {
+  --accent: #2DD4BF;
+  --accent-rgb: 45, 212, 191;
+}
+
+body.dark-mode .cert-accent-bar.accent-violet {
+  --accent: #A78BFA;
+  --accent-rgb: 167, 139, 250;
+}
+
+body.dark-mode .cert-accent-bar.accent-yellow {
+  --accent: #FACC15;
+  --accent-rgb: 250, 204, 21;
+}
+
+body.dark-mode .cert-accent-bar.accent-pink {
+  --accent: #F472B6;
+  --accent-rgb: 244, 114, 182;
 }
 
 .section-note {
