@@ -18,7 +18,7 @@ I work at the intersection of quality engineering, systems thinking, and observa
 
 <div class="cert-grid">
 
-<section class="cert-card accent-white">
+<section class="cert-card accent-default">
   <div class="cert-card-head">
      <h2>Professional Profile</h2>
     <span class="cert-accent-bar" aria-hidden="true"></span>
@@ -31,7 +31,7 @@ I work at the intersection of quality engineering, systems thinking, and observa
   </div>
 </section>
 
-<section class="cert-card accent-white">
+<section class="cert-card accent-default">
   <div class="cert-card-head">
      <h2>Engineering Principles</h2>
     <span class="cert-accent-bar" aria-hidden="true"></span>
@@ -44,7 +44,7 @@ I work at the intersection of quality engineering, systems thinking, and observa
   </div>
 </section>
 
-<section class="cert-card accent-white">
+<section class="cert-card accent-default">
   <div class="cert-card-head">
      <h2>Engineering Writing</h2>
     <span class="cert-accent-bar" aria-hidden="true"></span>
@@ -60,7 +60,7 @@ I work at the intersection of quality engineering, systems thinking, and observa
   </div>
 </section>
 
-<section class="cert-card accent-white">
+<section class="cert-card accent-default">
     <div class="cert-card-head">
      <h2>Engineering Work</h2>
     <span class="cert-accent-bar" aria-hidden="true"></span>
@@ -73,7 +73,7 @@ I work at the intersection of quality engineering, systems thinking, and observa
   </div>
 </section>
 
-<section class="cert-card accent-white">
+<section class="cert-card accent-default">
   <div class="cert-card-head">
      <h2>Engineering Map</h2>
     <span class="cert-accent-bar" aria-hidden="true"></span>
@@ -86,7 +86,7 @@ I work at the intersection of quality engineering, systems thinking, and observa
   </div>
 </section>
 
-<section class="cert-card accent-white">
+<section class="cert-card accent-default">
   <div class="cert-card-head">
      <h2>Learning & Certifications</h2>
     <span class="cert-accent-bar" aria-hidden="true"></span>

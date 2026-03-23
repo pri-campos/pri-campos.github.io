@@ -8,8 +8,8 @@ ROOT VARIABLES
   --text-main: #0f172a;
   --text-muted: #475569;
   --border: #e2e8f0;
-  --link: #2563eb;
-  --link-hover: #1d4ed8;
+  --link: #4763a4;
+  --link-hover: #0d50eb;
   --shadow: 0 10px 30px rgba(15,23,42,0.08);
   --hero-accent: linear-gradient(135deg,#2563eb 0%,#7c3aed 100%);
 }
@@ -24,7 +24,7 @@ body.dark-mode {
   --text-main: #e5e7eb;
   --text-muted: #94a3b8;
   --border: #334155;
-  --link: #60a5fa;
+  --link: #7997ef;
   --link-hover: #93c5fd;
   --shadow: 0 14px 40px rgba(0,0,0,0.35);
   --hero-accent: linear-gradient(135deg,#3b82f6 0%,#8b5cf6 100%);
@@ -347,67 +347,24 @@ body.dark-mode .cert-accent-bar {
 /* =========================================================
 ACCENT THEMES
 ========================================================= */
-
-/* Base */
-.cert-card.accent-white {
+.cert-card.accent-default {
   --accent: #ffffff;
   --accent-rgb: 59, 130, 246;
 }
 
-.cert-card.accent-orange {
-  --accent: #F97316;
-  --accent-rgb: 249, 115, 22;
-}
-
-.cert-card.accent-teal {
-  --accent: #14B8A6;
-  --accent-rgb: 20, 184, 166;
-}
-
-.cert-card.accent-violet {
-  --accent: #8B5CF6;
-  --accent-rgb: 139, 92, 246;
-}
-
-.cert-card.accent-yellow {
-  --accent: #EAB308;
-  --accent-rgb: 234, 179, 8;
-}
-
-.cert-card.accent-pink {
-  --accent: #EC4899;
-  --accent-rgb: 236, 72, 153;
-}
-
-/* Dark mode calibration */
-body.dark-mode .cert-accent-bar.accent-blue {
-  --accent: #ae9222;
+body.dark-mode .cert-card.accent-default {
+  --accent: #131a29;
   --accent-rgb: 96, 165, 250;
 }
 
-body.dark-mode .cert-accent-bar.accent-orange {
-  --accent: #FB923C;
-  --accent-rgb: 251, 146, 60;
-}
-
-body.dark-mode .cert-accent-bar.accent-teal {
-  --accent: #2DD4BF;
-  --accent-rgb: 45, 212, 191;
-}
-
-body.dark-mode .cert-accent-bar.accent-violet {
-  --accent: #A78BFA;
-  --accent-rgb: 167, 139, 250;
-}
-
-body.dark-mode .cert-accent-bar.accent-yellow {
-  --accent: #FACC15;
-  --accent-rgb: 250, 204, 21;
-}
-
-body.dark-mode .cert-accent-bar.accent-pink {
-  --accent: #F472B6;
-  --accent-rgb: 244, 114, 182;
+.cert-accent-bar {
+  box-shadow:
+    0 5px 9px rgba(100, 110, 128, 0.18),
+    0 10px 16px rgba(120, 133, 152, 0.16),
+    15px 15px 15px rgba(255,255,255,0.82),
+    4px 4px 8px rgba(174, 148, 68, 0.22),
+    inset 2px 2px 4px rgba(255,255,255,0.42),
+    inset -2px -2px 4px rgba(190, 145, 24, 0.12);
 }
 
 .section-note {
@@ -1200,13 +1157,9 @@ TRACK
   background: linear-gradient(145deg, #edf2f8, #d9e2ee);
   border: 1px solid rgba(255,255,255,0.32);
 
-  /* aro externo + cavidade interna */
   box-shadow:
-    /* aro superior/esquerdo */
     -6px -6px 14px rgba(255,255,255,0.88),
-    /* aro inferior/direito */
     7px 7px 16px rgba(166, 178, 196, 0.34),
-    /* polimento externo */
     0 10px 18px rgba(133, 146, 164, 0.10);
   transition:
     background 0.45s ease,
