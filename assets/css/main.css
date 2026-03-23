@@ -3,7 +3,7 @@ ROOT VARIABLES
 ========================================================= */
 :root {
   --bg: #f8fafc;
-  --surface: #e4e8fb;
+  --surface: #e4e8fb00;
   --surface-alt: #f3f7fd;
   --text-main: #0f172a;
   --text-muted: #475569;
