@@ -3,8 +3,8 @@ ROOT VARIABLES
 ========================================================= */
 :root {
   --bg: #f8fafc;
-  --surface: #ffffff;
-  --surface-alt: #f1f5f9;
+  --surface: #e4e8fb;
+  --surface-alt: #f3f7fd;
   --text-main: #0f172a;
   --text-muted: #475569;
   --border: #e2e8f0;
@@ -169,7 +169,7 @@ CARD
       var(--surface)
     );
 
-  border: 2.5px solid color-mix(in srgb, var(--line-soft, var(--border)) 70%, transparent);
+  border: 2px solid color-mix(in srgb, var(--line-soft, var(--border)) 70%, transparent);
 
   box-shadow:
     -10px -10px 20px rgb(255, 255, 255),
@@ -254,9 +254,9 @@ ACCENT BAR
 
   box-shadow:
     -10px -10px 20px rgb(255, 255, 255),
-    -3px -3px 6px rgb(247, 245, 245),
-    8px 8px 18px rgba(55, 54, 54, 0.4),
-    inset 2px 2px 4px rgba(255,255,255,0.5);
+    -3px -3px 6px rgb(247, 245, 245, 0,3),
+    8px 8px 18px rgba(55, 54, 54, 0.3),
+    inset 2px 2px 4px rgba(255,255,255,0.3);
 
   opacity: 0.88;
 }
@@ -353,7 +353,7 @@ body.dark-mode .cert-accent-bar {
 ACCENT THEMES
 ========================================================= */
 .cert-card.accent-default {
-  --accent: #ffffff;
+  --accent: #e4e7fb;
   --accent-rgb: 59, 130, 246;
 }
 
@@ -413,7 +413,7 @@ CONTACT GRID
 
   background:
     linear-gradient(145deg, color-mix(in srgb, var(--surface) 92%, white 8%), var(--surface));
-  border: 2.5px solid color-mix(in srgb, var(--line-soft, var(--border)) 78%, transparent);
+  border: 2px solid color-mix(in srgb, var(--line-soft, var(--border)) 78%, transparent);
 
   box-shadow:
     -10px -10px 20px rgba(255, 255, 255, 0.75),
@@ -475,7 +475,7 @@ CONTACT GRID
 
   box-shadow:
     inset 1px 1px 0 rgba(255,255,255,0.06),
-    3px 3px 8px rgba(0,0,0,0.10);
+    3px 3px 8px rgba(0,0,0,0.4);
 }
 
 .contact-icon svg {
@@ -522,8 +522,8 @@ body:not(.dark-mode) .contact-card:hover {
 
 body:not(.dark-mode) .contact-icon {
   box-shadow:
-    inset 1px 1px 0 rgba(255,255,255,0.42),
-    4px 4px 10px rgba(170, 182, 198, 0.14);
+    inset 1px 1px 0 rgba(250, 249, 249, 0.72),
+    4px 4px 10px rgba(170, 182, 198, 0.64);
 }
 
 body.dark-mode .contact-card {
