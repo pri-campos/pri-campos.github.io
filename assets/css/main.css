@@ -169,10 +169,10 @@ CARD
       var(--surface)
     );
 
-  border: 1px solid color-mix(in srgb, var(--line-soft, var(--border)) 78%, transparent);
+  border: 2.5px solid color-mix(in srgb, var(--line-soft, var(--border)) 70%, transparent);
 
   box-shadow:
-    -4px -4px 10px rgba(255, 255, 255, 0.06),
+    -4px -4px 10px rgba(255, 255, 255, 0.9),
     6px 6px 14px rgba(0, 0, 0, 0.10),
     inset 1px 1px 0 rgba(255,255,255,0.04);
 
@@ -210,7 +210,7 @@ CARD
   transform: translateY(-2px);
   border-color: color-mix(in srgb, var(--link) 22%, var(--line-soft, var(--border)));
   box-shadow:
-    -5px -5px 12px rgba(255, 255, 255, 0.07),
+    -5px -5px 12px rgba(255, 255, 255, 0.10),
     10px 10px 18px rgba(0, 0, 0, 0.14),
     0 0 0 1px color-mix(in srgb, var(--link) 8%, transparent);
 }
@@ -219,7 +219,7 @@ CARD
   transform: translateY(0);
   box-shadow:
     inset 3px 3px 8px rgba(0,0,0,0.14),
-    inset -2px -2px 6px rgba(255,255,255,0.03);
+    inset -2px -2px 6px rgba(255,255,255,0.10);
 }
 
 .cert-card h2 {
@@ -407,7 +407,7 @@ CONTACT GRID
 
   background:
     linear-gradient(145deg, color-mix(in srgb, var(--surface) 92%, white 8%), var(--surface));
-  border: 1px solid color-mix(in srgb, var(--line-soft, var(--border)) 78%, transparent);
+  border: 2.5px solid color-mix(in srgb, var(--line-soft, var(--border)) 78%, transparent);
 
   box-shadow:
     -4px -4px 10px rgba(255, 255, 255, 0.06),
