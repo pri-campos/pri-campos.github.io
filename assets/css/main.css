@@ -353,7 +353,7 @@ body.dark-mode .cert-accent-bar {
 ACCENT THEMES
 ========================================================= */
 .cert-card.accent-default {
-  --accent: #e4e7fb;
+  --accent: #e4e7fb00;
   --accent-rgb: 59, 130, 246;
 }
 
