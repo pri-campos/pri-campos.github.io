@@ -6,7 +6,7 @@ permalink: /
 
 # Priscila Campos
 
-Quality Engineering for distributed systems, focusing on reliability, test architecture, and quality strategy.
+Quality Engineer for distributed systems, focusing on reliability, test architecture, and quality strategy.
 
 <p class="page-intro">
 I work at the intersection of quality engineering, systems thinking, and observability, using automation and AI to improve reliability in complex distributed systems.
@@ -100,16 +100,6 @@ I work at the intersection of quality engineering, systems thinking, and observa
 </section>
 
 </div>
-
----
-
-## Current Focus
-
-- Quality engineering leadership
-- Distributed systems reliability
-- Test automation and testability
-- Quality strategy for complex software systems
-- Quality practices for AI-assisted software engineering
 
 ---
 
