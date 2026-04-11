@@ -26,7 +26,7 @@ permalink: /about/
     >
 
     <div>
-      <p class="about-eyebrow">About</p>
+      <p class="about-eyebrow">about.</p>
       <h1>Priscila Campos</h1>
     </div>
   </div>
@@ -34,66 +34,30 @@ permalink: /about/
   <div class="about-content">
 
     <p class="about-lead">
-      I am a Quality Engineer professional with {{ years }}+ years of experience in technology,
-      working primarily in critical domains such as fintech, banking, e-commerce, and ERP systems.
+      I’m a Quality Engineer, born in Minas Gerais, Brazil — where things move fast, yet there’s always time for coffee.
     </p>
 
     <p>
-      My work focuses on quality as an engineering capability. I design validation strategies,
-      test architectures, and automation approaches that integrate directly into delivery workflows,
-      supporting reliability in complex distributed systems.
+      I approach quality as a living system. 
+      One that requires understanding how efficiency, speed, and differentiation interact — and how to design strategies that balance these forces without compromising long-term sustainability.
     </p>
 
     <p>
-      I have experience with microservices in containerized environments, as well as distributed
-      systems in AWS. This includes validating asynchronous flows built on queues and events,
-      using messaging services such as SQS and SNS.
+      My work focuses on building adaptable quality strategies, grounded in data and shaped by context. 
+      I enjoy mapping complex systems, identifying leverage points, and defining how quality emerges — not just how it is tested.
     </p>
 
     <p>
-      Throughout my career, I have specialized in translating complex business rules into executable
-      specifications, turning end-to-end automation into a form of living documentation that scales
-      across teams.
+      I see quality engineering as a dynamic puzzle: 
+      pieces are constantly moving, rules evolve, and outcomes depend on how well we understand connections and transformations within the system.
     </p>
 
     <p>
-      My approach is grounded in systems thinking, observability, and architectural analysis.
-      I am interested in making systems more understandable, more reliable, and easier to evolve —
-      not only verifying behavior, but improving how systems are built.
+      What drives me is complexity. 
+      I’m motivated by challenges that require new ways of thinking — whether that means introducing new approaches or recombining existing ones to create something better.
     </p>
 
     <hr class="about-divider"/>
-
-    <div class="about-columns">
-
-      <div>
-        <h2>Focus</h2>
-        <ul>
-          <li>Quality strategy for complex systems</li>
-          <li>Test architecture for web and backend services</li>
-          <li>Distributed systems validation in AWS</li>
-          <li>Asynchronous and event-driven systems</li>
-        </ul>
-      </div>
-
-      <div>
-        <h2>Selected Work</h2>
-        <ul>
-          <li>Test harnesses for edge cases in complex integrations</li>
-          <li>Data-driven quality visibility systems</li>
-          <li>Custom frameworks for asynchronous validation</li>
-        </ul>
-      </div>
-
-      <div>
-        <h2>Additional</h2>
-        <p class="muted">
-          Experience with mobile automation (Android, iOS, React Native) as a complementary area.
-        </p>
-      </div>
-
-    </div>
-
   </div>
 
 </section>
