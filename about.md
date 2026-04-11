@@ -41,8 +41,7 @@ permalink: /about/
     </p>
 
     <p>
-      What drives me is complexity. 
-      I’m motivated by challenges that require new ways of thinking — whether that means introducing new approaches or recombining existing ones to create something better.
+      I’m motivated by challenges that demand new ways of thinking — especially when solving them requires reshaping assumptions, not just applying existing patterns.
     </p>
 
     <hr class="about-divider"/>
