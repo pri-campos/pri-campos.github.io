@@ -36,7 +36,7 @@ permalink: /about/
 
     <p>
       I see quality engineering as a dynamic puzzle:
-      pieces are constantly moving, rules evolve, and outcomes depend on how well we understand connections and transformations within the system.
+      pieces change shape, connections shift, and what once fit may no longer do. Rules evolve, and outcomes depend on how well we understand these connections and transformations.
     </p>
 
     <p>
