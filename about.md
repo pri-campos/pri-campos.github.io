@@ -4,18 +4,6 @@ title: About
 permalink: /about/
 ---
 
-{% assign start_year = 2009 %}
-{% assign start_month = 5 %}
-
-{% assign current_year = "now" | date: "%Y" | plus: 0 %}
-{% assign current_month = "now" | date: "%m" | plus: 0 %}
-
-{% assign years = current_year | minus: start_year %}
-
-{% if current_month < start_month %}
-  {% assign years = years | minus: 1 %}
-{% endif %}
-
 <section class="about-minimal">
 
   <div class="about-header">
