@@ -6,10 +6,10 @@ permalink: /
 
 # Priscila Campos
 
-Quality Engineer taking notes.
+A Quality Engineer’s Toolkit.
 
 <p class="page-intro">
-A digital notebook where I document explorations, questions, and learnings.
+  A digital notebook for structuring my technical reasoning, documenting tools, and mapping out the questions I face in quality strategy.
 </p>
 
 ---
