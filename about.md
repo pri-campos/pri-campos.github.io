@@ -21,11 +21,11 @@ permalink: /about/
 
   <div class="profile-intro">
     <p class="profile-lead">
-      I’m a Quality Engineer, born in Minas Gerais, Brazil — a place that moves fast, yet always leaves room for coffee.
+      I’m a Quality Engineer, born in Minas Gerais, Brazil — a place where good conversations come with a good cup of coffee.
     </p>
 
     <p>
-      I see quality shaped by constant trade-offs between efficiency, speed, and differentiation.
+      Throughout my experience, I see quality being shaped by constant trade-offs between efficiency, speed, and innovation. 
       Understanding how these forces interact — and how to balance them within real constraints — is an ongoing challenge.
     </p>
 
