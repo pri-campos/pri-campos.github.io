@@ -40,7 +40,7 @@ permalink: /about/
     </p>
 
     <p>
-      I’m motivated by challenges that demand new ways of thinking — especially when solving them requires reshaping assumptions, not just applying existing patterns.
+      I am driven by challenges that demand new ways of thinking — especially when reframing assumptions allows us to find new paths to quality, with a fresh perspective on the impact on people and deliveries.
     </p>
   </div>
 

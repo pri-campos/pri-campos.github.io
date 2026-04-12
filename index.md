@@ -6,10 +6,10 @@ permalink: /
 
 # Priscila Campos
 
-A Quality Engineer’s Toolkit.
+Engineering Notebook & Toolkit
 
 <p class="page-intro">
-  A digital notebook for structuring my technical reasoning, documenting tools, and mapping out the questions I face in quality strategy.
+  A personal space to structure technical reasoning, document tools, and map out the challenges I face in quality strategy.
 </p>
 
 ---
